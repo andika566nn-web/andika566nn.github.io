@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK NEGERI 8 PALEMBANG - Official</title>
+    <style>
+        :root { --p: #2563eb; --s: #1e40af; --dark: #0f172a; --light: #f8fafc; --accent: #f59e0b; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--light); color: var(--dark); scroll-behavior: smooth; }
+        
+        /* Navbar */
+        nav { background: white; padding: 0.8rem 8%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo-text { font-weight: bold; color: var(--s); font-size: 1.1rem; line-height: 1.2; }
+        
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--p); }
+        
+        /* Hero Section */
+        .hero { min-height: 80vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://r.jina.ai/i/6c299c85025740e59990b79339e72658') center/cover; display: flex; justify-content: center; align-items: center; color: white; text-align: center; margin-top: 60px; }
+        .hero-box { padding: 40px; border-radius: 20px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
+
+        section { padding: 70px 8%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--s); }
+
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--p); }
+        .card i { font-size: 3rem; display: block; margin-bottom: 15px; font-style: normal; }
+
+        /* Maps Button */
+        .btn-maps { display: inline-block; background: var(--p); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-bottom: 20px; transition: 0.3s; }
+        .btn-maps:hover { background: var(--s); transform: scale(1.02); }
+
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 50px 8%; text-align: center; }
+        .social-link { display: inline-block; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .social-link:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4); }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); padding: 20px; }
+        .modal-content { max-width: 600px; background: white; margin: 50px auto; border-radius: 15px; overflow: hidden; position: relative; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #000; z-index: 10; }
+
+        @media (max-width: 768px) { .nav-links { display: none; } .logo-text { font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <img src="logosmkn.jpg" alt="Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+            <span id="logo-fallback" style="display:none; font-size: 1.5rem;">🏫</span>
+            <div class="logo-text">SMK NEGERI 8 PALEMBANG</div>
+        </div>
+        <div class="nav-links">
+            <a href="#jurusan">Jurusan</a>
+            <a href="#ekskul">Ekskul</a>
+            <a href="#lokasi">Lokasi</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-box">
+            <h1>Selamat Datang di Portal Resmi</h1>
+            <p style="font-size: 1.2rem; margin: 10px 0;">SMK NEGERI 8 PALEMBANG</p>
+            <div style="margin-top:20px; background:var(--accent); color: var(--dark); display:inline-block; padding:8px 25px; border-radius:50px; font-weight: bold;">Terakreditasi: A (Unggul)</div>
+        </div>
+    </header>
+
+    <section id="jurusan">
+        <div class="section-title"><h2>Program Keahlian</h2><p>Masa depan gemilang dimulai dari sini</p></div>
+        <div class="grid">
+            <div class="card" onclick="showModal('Teknik Komputer Jaringan', 'Mempelajari instalasi jaringan, administrasi server, dan keamanan siber.', 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800')" style="cursor: pointer;">
+                <i>🌐</i>
+                <h3>Teknik Komputer Jaringan</h3>
+                <p style="color: var(--p); margin-top: 10px; font-weight: bold;">Lihat Detail →</p>
+            </div>
+            <div class="card" onclick="showModal('Teknik Kendaraan Ringan', 'Fokus pada pemeliharaan mesin otomotif dan teknologi kendaraan terbaru.', 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800')" style="cursor: pointer;">
+                <i>🚗</i>
+                <h3>Teknik Kendaraan Ringan</h3>
+                <p style="color: var(--p); margin-top: 10px; font-weight: bold;">Lihat Detail →</p>
+            </div>
+            <div class="card" onclick="showModal('Perhotelan', 'Manajemen perhotelan dan standar pelayanan tamu profesional.', 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800')" style="cursor: pointer;">
+                <i>🏨</i>
+                <h3>Perhotelan</h3>
+                <p style="color: var(--p); margin-top: 10px; font-weight: bold;">Lihat Detail →</p>
+            </div>
+            <div class="card" onclick="showModal('Pariwisata', 'Perencanaan perjalanan dan manajemen destinasi wisata.', 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800')" style="cursor: pointer;">
+                <i>✈️</i>
+                <h3>Pariwisata</h3>
+                <p style="color: var(--p); margin-top: 10px; font-weight: bold;">Lihat Detail →</p>
+            </div>
+            <div class="card" onclick="showModal('Tata Boga', 'Seni mengolah makanan nusantara dan internasional.', 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800')" style="cursor: pointer;">
+                <i>🍳</i>
+                <h3>Tata Boga</h3>
+                <p style="color: var(--p); margin-top: 10px; font-weight: bold;">Lihat Detail →</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ekskul" style="background: #f1f5f9;">
+        <div class="section-title"><h2>Ekstrakurikuler</h2><p>Kembangkan bakat dan minatmu</p></div>
+        <div class="grid">
+            <div class="card"><i>⚽</i><h3>Futsal</h3></div>
+            <div class="card"><i>🇮🇩</i><h3>Paskibra</h3></div>
+            <div class="card"><i>⚜️</i><h3>Pramuka</h3></div>
+            <div class="card"><i>🏀</i><h3>Basket</h3></div>
+            <div class="card"><i>🏐</i><h3>Voli</h3></div>
+        </div>
+    </section>
+
+    <section id="lokasi" style="background: #fff;">
+        <div class="section-title">
+            <h2>Lokasi Sekolah</h2>
+            <p>Jalan Panca Usaha Rt. 58 Rw. 13, Kota Palembang</p>
+        </div>
+        <div style="text-align: center;">
+            <a href="https://maps.app.goo.gl/YV9XyM6M1S9N78r27" target="_blank" class="btn-maps">
+                📍 Buka di Aplikasi Google Maps
+            </a>
+        </div>
+        <div style="height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #ddd;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.340947703816!2d104.7615003102148!3d-2.990264696976694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3b76251219b101%3A0x6a17b8f97e20d6f2!2sSMK%20Negeri%208%20Palembang!5e0!3m2!1sid!2sid!4v1716300000000!5m2!1sid!2sid" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <img id="m-img" src="" style="width:100%; height:300px; object-fit:cover;">
+            <div style="padding:25px;">
+                <h2 id="m-title" style="color: var(--s);"></h2>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                <p id="m-desc" style="line-height:1.7; color:#444; font-size: 1.05rem;"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h3 style="margin-bottom: 10px;">SMK NEGERI 8 PALEMBANG</h3>
+        <p style="opacity: 0.8;">📍 Jalan Panca Usaha Rt. 58 Rw. 13, Kota Palembang</p>
+        <p style="opacity: 0.8; margin-top: 5px;">📞 (0711) 5620536 | ✉️ info@smkn8plg.sch.id</p>
+        <a href="https://www.instagram.com/smkn8plg" target="_blank" class="social-link">Kunjungi Instagram Resmi</a>
+        <p style="margin-top: 40px; opacity: 0.4; font-size: 0.8rem;">
+            © 2026 SMKN 8 Palembang. Seluruh Hak Cipta Dilindungi.
+        </p>
+    </footer>
+
+    <script>
+        function showModal(title, desc, img) {
+            document.getElementById('m-title').innerText = title;
+            document.getElementById('m-desc').innerText = desc;
+            document.getElementById('m-img').src = img;
+            document.getElementById('modal').style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        function closeModal() { 
+            document.getElementById('modal').style.display = "none"; 
+            document.body.style.overflow = "auto";
+        }
+        window.onclick = function(event) { if (event.target == document.getElementById('modal')) closeModal(); }
+    </script>
+</body>
+</html>
